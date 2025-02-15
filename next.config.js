@@ -11,10 +11,10 @@ const next_config = {
       },
     ],
   },
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "bn", "ar", "fr"],
-  },
+  // i18n: {
+  //   defaultLocale: "en",
+  //   locales: ["en", "bn", "ar", "fr"],
+  // },
   async headers() {
     return [
       {
