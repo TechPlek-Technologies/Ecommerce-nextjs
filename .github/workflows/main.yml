@@ -2,7 +2,6 @@ on:
   push:
     branches:
       - main
-
 name: 🚀 Deploy website on push
 
 jobs:
@@ -13,6 +12,16 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
 
+    - name: Use Node.js 20
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.10.0'
+      
+    - name: 🔨 Build Project
+      run: |
+        npm install
+        npm run build
+    
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
@@ -20,4 +29,4 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASS }}
-        local-dir: ./.next/
+        local-dir:  .next/
