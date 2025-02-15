@@ -13,18 +13,6 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
 
-    - name: Use Node.js 20
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20.10.0'
-
-    - name: 🔨 Install dependencies
-      run: npm install
-    
-    - name: 🔨 Build Project
-      run: |
-        npm run build
-
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
