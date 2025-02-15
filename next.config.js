@@ -2,7 +2,6 @@ const headers = require("./headers");
 
 const next_config = {
   reactStrictMode: false,
-  swcMinify: true,
    output: "export",
   images: {
     remotePatterns: [
