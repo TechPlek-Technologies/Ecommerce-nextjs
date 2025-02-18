@@ -45,7 +45,7 @@ const ProfilePage = () => {
             <div className="col-md-3">
               <div className={classes.menu}>
                 <div className={classes.user_info}>
-                  <h4>{session && session.user.name}</h4>
+                  <h4 style={{color:"#fff"}}>{session && session.user.name}</h4>
                   <span>{session && session.user.email}</span>
                 </div>
                 <div className={classes.menu_list}>

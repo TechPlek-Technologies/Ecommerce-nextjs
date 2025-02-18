@@ -6,6 +6,8 @@ import { useTranslation } from "react-i18next";
 const Banner = (props) => {
   const { t } = useTranslation();
   if (!props.banner) return null;
+  console.log("Banner",props);
+  
 
   return (
     <div className={`${classes.content_container} custom_container`}>

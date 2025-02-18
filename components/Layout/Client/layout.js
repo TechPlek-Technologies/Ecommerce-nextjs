@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import ScrollToTop from "~/components/ScrollToTop";
 import data from "~/data.json";
 import useWindowDimensions from "~/lib/useWindowDimensions";
-import Footer from "./footer";
+// import Footer from "./footer";
 import c from "./layout.module.css";
 import MobileNav from "./mobileNavbar";
 import NavBar from "./navbar";
 import FooterMobile from "./mobileFooterNav";
+import Header from "~/components/navbar/Header";
+import Footer from "~/components/footer/Footer";
 
 const ClientLayout = (props) => {
   const footerVisibility =
@@ -21,9 +23,11 @@ const ClientLayout = (props) => {
   }, []);
   return (
     <>
-      {mobileNav ? <MobileNav /> : <NavBar />}
-      <main className={c.main}>{props.children}</main>
-      <Footer visibility={footerVisibility} />
+      {/* {mobileNav ? <MobileNav /> : <NavBar />} */}
+      <Header/>
+      <main>{props.children}</main>
+      {/* <Footer visibility={footerVisibility} /> */}
+      <Footer/>
       <ScrollToTop />
       {mobileNav && <FooterMobile />}
     </>

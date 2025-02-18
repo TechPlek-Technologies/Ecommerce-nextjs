@@ -66,7 +66,7 @@ const SidebarCategoryList = (props) => {
 
   return (
     <ul className="list-unstyled ps-0">
-      {props.category.map((cat, i) => (
+      {props.category?.map((cat, i) => (
         <li className={c.list} key={cat._id + i}>
           <button
             className={`${

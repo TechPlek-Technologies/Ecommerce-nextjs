@@ -5,6 +5,8 @@ import { wrapper } from "~/redux/store";
 import classes from "~/styles/pages.module.css";
 import dynamic from "next/dynamic";
 import pageData from "~/lib/dataLoader/pageData";
+import Breadcrumb from "~/components/shopList/breadcrumb/Breadcrumb";
+import PrivacyInner from "~/components/privacy/PrivacyInner";
 const Error500 = dynamic(() => import("~/components/error/500"));
 
 const PrivacyPage = ({ data, error }) => {
@@ -16,7 +18,7 @@ const PrivacyPage = ({ data, error }) => {
       ) : (
         <>
           <HeadData title="Privacy Policy" />
-          <div className="layout_top">
+          {/* <div className="layout_top">
             <h1 className={classes.heading}>{t("privacy_policy")}</h1>
             {data && (
               <div
@@ -26,7 +28,15 @@ const PrivacyPage = ({ data, error }) => {
                 }}
               ></div>
             )}
-          </div>
+          </div> */}
+
+          {/* breadcrumb-area-start */}
+          <Breadcrumb title="Privacy Policy" />
+          {/* breadcrumb-area-end */}
+
+           {/* privacy inner */}
+           <PrivacyInner />
+          {/* privacy inner */}
         </>
       )}
     </>

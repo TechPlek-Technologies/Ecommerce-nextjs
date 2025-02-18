@@ -4,6 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Category from "./categories";
 import c from "./category.module.css";
 import { useTranslation } from "react-i18next";
+import categoryPageData from "~/lib/dataLoader/category";
+import { setSettingsData } from "~/lib/clientFunctions";
+import { wrapper } from "~/redux/store";
 
 const breakpointNewArrival = {
   320: {
@@ -23,12 +26,10 @@ const breakpointNewArrival = {
   },
 };
 
-function CategoryList(props) {
+function CategoryList({ data, error }) {
   const { t } = useTranslation();
 
-  if (!props.categoryList || !props.categoryList.length) {
-    return null;
-  }
+  console.log("data_props",data);
 
   return (
     <div className="content_container">
@@ -52,9 +53,9 @@ function CategoryList(props) {
             centerInsufficientSlides={true}
             speed={900}
           >
-            {props.categoryList &&
-              props.categoryList.map((category, index) => (
-                <SwiperSlide key={category._id}>
+            {data &&
+             data.category.map((category, index) => (
+                <SwiperSlide key={category.categoryId}>
                   <Category
                     name={category.name}
                     slug={category.slug}
@@ -70,3 +71,26 @@ function CategoryList(props) {
 }
 
 export default CategoryList;
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async ({ req, res, locale, ...etc }) => {
+      if (res) {
+        res.setHeader(
+          "Cache-Control",
+          "public, s-maxage=10800, stale-while-revalidate=59"
+        );
+      }
+      const _data = await categoryPageData();
+      const data = JSON.parse(JSON.stringify(_data));
+      if (data.success) {
+        setSettingsData(store, data);
+      }
+      return {
+        props: {
+          data,
+          error: !data.success,
+        },
+      };
+    }
+);

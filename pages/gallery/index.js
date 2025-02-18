@@ -69,6 +69,9 @@ function GalleryPage({ data, error }) {
     setLoading(false);
   }
 
+  console.log("data",data);
+  
+
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
@@ -131,6 +134,7 @@ function GalleryPage({ data, error }) {
     sortDataHandler(sortKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [_productList]);
+
 
   return (
     <>
@@ -207,6 +211,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
         _query = true;
       }
       const _data = await galleryPageData(type, _query);
+      
       const data = JSON.parse(JSON.stringify(_data));
       if (data.success) {
         setSettingsData(store, data);

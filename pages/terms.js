@@ -1,10 +1,11 @@
 import { useTranslation } from "react-i18next";
 import HeadData from "~/components/Head";
-import { appUrl, fetchData, setSettingsData } from "~/lib/clientFunctions";
+import { setSettingsData } from "~/lib/clientFunctions";
 import { wrapper } from "~/redux/store";
-import classes from "~/styles/pages.module.css";
 import dynamic from "next/dynamic";
 import pageData from "~/lib/dataLoader/pageData";
+import TermInner from "~/components/terms/TermInner";
+import Breadcrumb from "~/components/shopList/breadcrumb/Breadcrumb";
 const Error500 = dynamic(() => import("~/components/error/500"));
 
 const TermsPage = ({ data, error }) => {
@@ -16,7 +17,7 @@ const TermsPage = ({ data, error }) => {
       ) : (
         <>
           <HeadData title="Terms & Conditions" />
-          <div className="layout_top">
+          {/* <div className="layout_top">
             <h1 className={classes.heading}>{t("terms_and_conditions")}</h1>
             {data && (
               <div
@@ -26,7 +27,15 @@ const TermsPage = ({ data, error }) => {
                 }}
               ></div>
             )}
-          </div>
+          </div> */}
+
+           {/* breadcrumb-area-start */}
+           <Breadcrumb title="Terms & Conditions" />
+          {/* breadcrumb-area-end */}
+
+           {/* terms inner */}
+           <TermInner />
+          {/* terms inner */}
         </>
       )}
     </>

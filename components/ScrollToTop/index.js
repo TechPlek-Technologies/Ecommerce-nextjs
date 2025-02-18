@@ -1,40 +1,28 @@
-import { useEffect, useState } from "react";
-import Classes from "./scrollToTop.module.css";
+"use client";
+import React, { useEffect } from "react";
 
-const ScrollToTop = () => {
-  const [showButton, setShowButton] = useState(false);
-
-  function scrollCheck() {
-    if (window.pageYOffset > 300) {
-      setShowButton(true);
-    } else {
-      setShowButton(false);
-    }
-  }
-
+const scrollToTop = () => {
   useEffect(() => {
-    window.addEventListener("scroll", scrollCheck);
-    return () => {
-      window.removeEventListener("scroll", scrollCheck);
-    };
+    const result = document.querySelector(".scroll-top");
+    if (result) {
+      document.addEventListener("scroll", () => {
+        if (window.scrollY > 200) {
+          result.classList.add("open");
+        } else {
+          result.classList.remove("open");
+        }
+      });
+      result.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
   }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
+  
   return (
-    <>
-      {showButton && (
-        <button onClick={scrollToTop} className={Classes.button}>
-          &#8679;
-        </button>
-      )}
-    </>
+    <button className="scroll-top scroll-to-target" data-target="html">
+      <i className="icon-chevrons-up"></i>
+    </button>
   );
 };
 
-export default ScrollToTop;
+export default scrollToTop;

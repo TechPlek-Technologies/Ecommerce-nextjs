@@ -1,10 +1,11 @@
 import HeadData from "~/components/Head";
-import { appUrl, fetchData, setSettingsData } from "~/lib/clientFunctions";
+import { setSettingsData } from "~/lib/clientFunctions";
 import { wrapper } from "~/redux/store";
-import classes from "../styles/pages.module.css";
 import { useTranslation } from "react-i18next";
 import dynamic from "next/dynamic";
 import pageData from "~/lib/dataLoader/pageData";
+import Breadcrumb from "~/components/shopList/breadcrumb/Breadcrumb";
+import ReturnInner from "~/components/return/ReturnInner";
 const Error500 = dynamic(() => import("~/components/error/500"));
 
 const ReturnPage = ({ data, error }) => {
@@ -16,7 +17,7 @@ const ReturnPage = ({ data, error }) => {
       ) : (
         <>
           <HeadData title="Return Policy" />
-          <div className="layout_top">
+          {/* <div className="layout_top">
             <h1 className={classes.heading}>{t("return_policy")}</h1>
             {data && (
               <div
@@ -26,7 +27,15 @@ const ReturnPage = ({ data, error }) => {
                 }}
               ></div>
             )}
-          </div>
+          </div> */}
+
+           {/* breadcrumb-area-start */}
+           <Breadcrumb title="Return Policy" />
+          {/* breadcrumb-area-end */}
+
+           {/* return inner */}
+           <ReturnInner />
+          {/* return inner */}
         </>
       )}
     </>

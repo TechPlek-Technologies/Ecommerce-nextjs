@@ -3,11 +3,13 @@ import { createWrapper, HYDRATE } from "next-redux-wrapper";
 import { cartReducer } from "./cart.slice";
 import { sessionReducer } from "./session.slice";
 import { settingsReducer } from "./settings.slice";
+import filterSlice  from "./filter";
 
 const combinedReducer = combineReducers({
   cart: cartReducer,
   settings: settingsReducer,
   localSession: sessionReducer,
+  filter: filterSlice
 });
 
 const reducer = (state, action) => {

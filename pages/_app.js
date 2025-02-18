@@ -10,6 +10,7 @@ import GlobalLayout from "~/components/Layout/GlobalLayout";
 import "~/public/css/bootstrap.min.css";
 import { wrapper } from "~/redux/store";
 import "~/styles/globals.css";
+import "~/styles/global.scss";
 import { Roboto } from "@next/font/google";
 import { appWithI18Next } from "ni18n";
 import { ni18nConfig } from "../ni18n.config";
