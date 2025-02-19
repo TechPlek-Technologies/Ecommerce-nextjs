@@ -101,7 +101,7 @@ const ProductSingle = ({ product, progress, cls, offer_style, price_space }) => 
 
   return (
     <div className={`tpproduct p-relative ${cls ? cls : ''} ${progress ? 'tpprogress__hover' : ''}`}>
-      <div className="tpproduct__thumb p-relative text-center">
+      <div className="tpproduct__thumb p-relative text-center" style={{height:"250px"}}>
         <Link href={`/product/${product.slug}`}>
           <Image src={product.image[0]?.url} alt={product.name} width={217} height={217} style={imgStyle} />
         </Link>
