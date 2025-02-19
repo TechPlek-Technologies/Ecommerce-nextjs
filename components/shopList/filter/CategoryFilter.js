@@ -3,19 +3,26 @@ import { useAppDispatch, useAppSelector } from '~/redux/hook';
 import { useRouter } from 'next/router';
 import ImageLoader from '~/components/Image';
 
-const CategoryFilter = ({ category = [], updateCategory, updateSubCategory, updateChildCategory }) => {
+const CategoryFilter = ({ category = [], updateCategory, updateSubCategory, updateChildCategory, resetKey }) => {
   const { category: parentCategory, subCategory, childCategory } = useAppSelector((state) => state.filter);
   const dispatch = useAppDispatch();
   const router = useRouter();
 
-  // State to manage expanded categories and subcategories
+  // State to manage expanded categories and selected categories
   const [expandedCategories, setExpandedCategories] = useState({});
   const [_c, setCatClicked] = useState('');
   const [subClicked, setSubClicked] = useState('');
   const [childClicked, setChildClicked] = useState('');
   const [selectedSubCategories, setSelectedSubCategories] = useState(new Set());
 
-  // Toggle category visibility
+  // Reset category selection when resetKey changes
+  useEffect(() => {
+    setCatClicked('');
+    setSubClicked('');
+    setChildClicked('');
+    setSelectedSubCategories(new Set());
+  }, [resetKey]); // <-- This listens to the resetKey change from ShopSidebar.js
+
   const toggleCategoryVisibility = (categoryId) => {
     setExpandedCategories((prev) => ({
       ...prev,
@@ -23,15 +30,14 @@ const CategoryFilter = ({ category = [], updateCategory, updateSubCategory, upda
     }));
   };
 
-  // Handle category change (parent)
   const handleParentCategory = (categoryId) => {
     if (_c === categoryId) {
       setCatClicked('');
-      updateCategory(''); // Deselect category
-      setSelectedSubCategories(new Set()); // Clear selected subcategories
-      updateSubCategory(''); // Deselect subcategory
-      setChildClicked(''); // Deselect child category
-      updateChildCategory(''); // Deselect child category
+      updateCategory('');
+      setSelectedSubCategories(new Set());
+      updateSubCategory('');
+      setChildClicked('');
+      updateChildCategory('');
       setExpandedCategories((prev) => ({ ...prev, [categoryId]: false }));
     } else {
       setCatClicked(categoryId);
@@ -40,23 +46,21 @@ const CategoryFilter = ({ category = [], updateCategory, updateSubCategory, upda
     }
   };
 
-  // Handle subcategory change
   const handleSubCategory = (categoryId, subCategoryId) => {
     if (selectedSubCategories.has(subCategoryId)) {
       selectedSubCategories.delete(subCategoryId);
-      setSelectedSubCategories(new Set(selectedSubCategories)); // Update state with the new Set
-      updateSubCategory(''); // Deselect subcategory
+      setSelectedSubCategories(new Set(selectedSubCategories));
+      updateSubCategory('');
     } else {
       selectedSubCategories.add(subCategoryId);
-      setSelectedSubCategories(new Set(selectedSubCategories)); // Update state with the new Set
+      setSelectedSubCategories(new Set(selectedSubCategories));
       updateSubCategory(subCategoryId);
     }
   };
 
-  // Handle child category change
   const handleChildCategory = (subCategoryId, childCategoryId) => {
     if (childClicked === childCategoryId) {
-      updateChildCategory(''); // Deselect child category
+      updateChildCategory('');
       setChildClicked('');
     } else {
       setChildClicked(childCategoryId);
@@ -64,7 +68,6 @@ const CategoryFilter = ({ category = [], updateCategory, updateSubCategory, upda
     }
   };
 
-  // Detect query change
   useEffect(() => {
     const { category, parent, child } = router.query;
     const query = category ? decodeURI(category) : '';
@@ -81,7 +84,6 @@ const CategoryFilter = ({ category = [], updateCategory, updateSubCategory, upda
       setCatClicked(query);
       updateCategory(query);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.query.category]);
 
   return (
@@ -96,8 +98,7 @@ const CategoryFilter = ({ category = [], updateCategory, updateSubCategory, upda
               style={{
                 display: 'flex',
                 alignItems: 'center',
-
-                color: _c === categoryItem.slug ? '#96AE00' : 'initial' // Change text color on selection
+                color: _c === categoryItem.slug ? '#96AE00' : 'initial' // ✅ This will reset correctly now
               }}
             >
               <ImageLoader
@@ -105,12 +106,11 @@ const CategoryFilter = ({ category = [], updateCategory, updateSubCategory, upda
                 alt={categoryItem.name}
                 width={22}
                 height={22}
-                style={{ marginRight: '10px' }} // Add margin to the right of the image
+                style={{ marginRight: '10px' }}
               />
               {categoryItem.name}
             </button>
 
-            {/* Show subcategories only if category is expanded */}
             <div className={_c === categoryItem.slug ? 'show' : 'collapse'}>
               <ul className="list-unstyled ps-0">
                 {categoryItem.subCategories.map((subCategoryItem) => (
@@ -134,7 +134,6 @@ const CategoryFilter = ({ category = [], updateCategory, updateSubCategory, upda
                       </label>
                     </div>
 
-                    {/* Show child categories if any */}
                     {subCategoryItem.child?.length > 0 && (
                       <div className={subClicked === subCategoryItem.slug ? 'show' : 'collapse'}>
                         <ul className="list-unstyled ps-0">
@@ -143,7 +142,7 @@ const CategoryFilter = ({ category = [], updateCategory, updateSubCategory, upda
                               key={child._id}
                               onClick={() => handleChildCategory(subCategoryItem.slug, child.slug)}
                               className={childClicked === child.slug ? 'child_active' : ''}
-                              style={{ marginLeft: '20px', cursor: 'pointer', fontSize: '14px', color: '#555' }} // Style for child categories
+                              style={{ marginLeft: '20px', cursor: 'pointer', fontSize: '14px', color: '#555' }}
                             >
                               {child.name}
                             </li>

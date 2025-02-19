@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import c from "./priceFilter.module.css";
+import React, { useState, useEffect } from 'react';
+import c from './priceFilter.module.css';
 
 const PriceFilter = ({ min, max, onChange }) => {
   const [maxValue, setMaxValue] = useState(max); // Initially set to max value
@@ -27,29 +27,34 @@ const PriceFilter = ({ min, max, onChange }) => {
     // Only call onChange initially if it's at the max value (show all data)
     handleInitialLoad();
   }, [maxValue]);
-  
 
   return (
-    <div className={c.container}>
-      <div className={c.slider}>
-        <input
-          type="range"
-          min={min}
-          max={max}
-          value={maxValue} // Slider reflects the current max value
-          onChange={handleSliderChange} // Handle slider change
-          className={c.slider__input}
-        />
-      </div>
+    // <div className={c.container}>
+      <div className="tpshop__widget mb-30 pb-25">
+        <h4 className="tpshop__widget-title">FILTER BY PRICE</h4>
+        <div className={c.slider}>
+          <input
+            type="range"
+            min={min}
+            max={max}
+            value={maxValue} // Slider reflects the current max value
+            onChange={handleSliderChange} // Handle slider change
+            className={c.slider__input}
+          />
+        </div>
 
-      <div className="price-filter mt-10">
-        <span>₹{min} - ₹{maxValue}</span> {/* Show the dynamic range */}
-      </div>
+        <div className="price-filter mt-10">
+          <span>
+            ₹{min} - ₹{maxValue}
+          </span>{' '}
+          {/* Show the dynamic range */}
+        </div>
 
-      <div className="productsidebar__btn mt-15 mb-15">
+        {/* <div className="productsidebar__btn mt-15 mb-15">
         <a href="#">FILTER</a>
+      </div> */}
       </div>
-    </div>
+    // </div>
   );
 };
 
