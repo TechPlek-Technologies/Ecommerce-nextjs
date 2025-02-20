@@ -11,8 +11,8 @@ import { useTranslation } from 'react-i18next';
 
 // Swiper slider settings
 const sliderSetting = {
-  slidesPerView: 6,
-  spaceBetween: 20,
+  slidesPerView: 5,
+  spaceBetween: 10,
   observer: true,
   observeParents: true,
   autoplay: {
@@ -20,7 +20,7 @@ const sliderSetting = {
     disableOnInteraction: true
   },
   breakpoints: {
-    1200: { slidesPerView: 6 },
+    1200: { slidesPerView: 5 },
     992: { slidesPerView: 4 },
     768: { slidesPerView: 3 },
     576: { slidesPerView: 2 },

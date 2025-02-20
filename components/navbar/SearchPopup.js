@@ -120,7 +120,7 @@ const SearchPopup = ({ isSearchOpen, setIsSearchOpen }) => {
                                 fontSize: '14px',
                                 fontWeight: '600',
                                 textAlign: 'center', // Center text alignment
-                                marginBottom:"0px !important"
+                                marginBottom:"0px"
                               }}
                             >
                               {product.item.name}

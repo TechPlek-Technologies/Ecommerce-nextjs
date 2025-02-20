@@ -65,7 +65,6 @@ function HomePage({ data, error }) {
           {/* deal offer end */}
 
           {/* <ProductList title={t('new_products')} type="new" /> */}
-          <div className="content_spacing" />
           {/* old */}
           {/* <Banner banner={data.additional && data.additional.homePage.banner} /> */}
           {/* <ProductList title={t('trending_products')} type="trending" /> */}
@@ -75,7 +74,7 @@ function HomePage({ data, error }) {
           <ProductBannerAreaFive data={data.additional && data.additional.homePage.collection} />
           {/* <ProductList title={t('best_selling')} type="bestselling" /> */}
           {/* <BrandCardList items={data.brand || []} /> */}
-          <div className="content_spacing" />
+          {/* <div className="content_spacing" /> */}
         </>
       )}
       <GlobalModal small={false} isOpen={isOpen} handleCloseModal={handleCloseModal}>

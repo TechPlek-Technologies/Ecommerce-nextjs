@@ -64,7 +64,7 @@ const CategoryDisplay = ({ cls, perView = 4, showCount = true }) => {
               <div className="category__item mb-30">
                 <div className="category__thumb fix mb-15">
                   <a href={`/shop?category=${item.slug}`} className="pointer">
-                    <Image src={item.icon[0]?.url} width={100} height={80} alt="category-thumb" />
+                    <Image src={item.icon[0]?.url} width={120} height={120} alt="category-thumb" style={{width:"120px",height:"120px"}}/>
                   </a>
                 </div>
                 <div className="category__content">
