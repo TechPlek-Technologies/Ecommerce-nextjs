@@ -3,11 +3,14 @@ const headers = require("./headers");
 const next_config = {
   reactStrictMode: false,
   images: {
+    domains: ["app.techplek.website"], // Ensure your domain is explicitly allowed
     remotePatterns: [
       {
-        hostname: "**",
+        protocol: "https",
+        hostname: "app.techplek.website", // Replace ** with actual domain
       },
     ],
+    unoptimized: false, // Set to `true` if `_next/image` still causes issues
   },
   i18n: {
     defaultLocale: "en",
@@ -20,9 +23,6 @@ const next_config = {
         headers,
       },
     ];
-  },
-  experimental: {
-    optimizePackageImports: ["@styled-icons/bootstrap"],
   },
 };
 
