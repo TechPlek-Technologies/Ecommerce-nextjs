@@ -11,6 +11,9 @@ import { toast } from 'react-toastify';
 import { postData, stockInfo } from '~/lib/clientFunctions';
 import { updateComparelist, updateWishlist } from '~/redux/cart.slice';
 import { _simpleProductCart, _variableProductCart } from '~/lib/cartHandle';
+import ProductDetails from '~/components/Shop/Product/productDetails';
+import GlobalModal from '~/components/Ui/Modal/modal';
+import { useRouter } from 'next/router';
 // import { handleModalProduct, handleOpenModal } from "@/redux/features/utility";
 // import { add_cart_product } from "@/redux/features/cart";
 // import { add_to_compare } from "@/redux/features/compare";
@@ -40,6 +43,20 @@ const ProductSingle = ({ product, progress, cls, offer_style, price_space }) => 
   const settings = useSelector((state) => state.settings);
   const { wishlist: wishlistState, compare: compareState } = useSelector((state) => state.cart);
   const discountInPercent = Math.round((100 - (product.discount * 100) / product.price) * 10) / 10;
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedSlug, setSelectedSlug] = useState(null);
+  const router = useRouter();
+
+  const handleOpenModal = (event, slug) => {
+    event.preventDefault(); // Prevent navigation
+    setSelectedSlug(slug);
+    setIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+    setSelectedSlug(null);
+  };
 
   function updateWishlistCount() {
     const __data = wishlistState ? wishlistState + 1 : 1;
@@ -132,7 +149,14 @@ const ProductSingle = ({ product, progress, cls, offer_style, price_space }) => 
           >
             <i className="icon-eye"></i>
           </a> */}
-          <a className="tpproduct__shopping-cart pointer" href={`/product/${product.slug}`}>
+          {/* <a className="tpproduct__shopping-cart pointer" href={`/product/${product.slug}`}>
+            <i className="icon-eye"></i>
+          </a> */}
+          <a
+            className="tpproduct__shopping-cart pointer"
+            href={`/product/${product.slug}`}
+            onClick={(e) => handleOpenModal(e, product.slug)}
+          >
             <i className="icon-eye"></i>
           </a>
         </div>
@@ -201,6 +225,9 @@ const ProductSingle = ({ product, progress, cls, offer_style, price_space }) => 
           </ul>
         </div>
       </div> */}
+      <GlobalModal small={false} isOpen={isOpen} handleCloseModal={handleCloseModal}>
+        {selectedSlug && <ProductDetails productSlug={selectedSlug} />}
+      </GlobalModal>
     </div>
   );
 };
