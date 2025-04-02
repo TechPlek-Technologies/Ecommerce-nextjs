@@ -39,23 +39,25 @@ const ProductListItem = ({ product }) => {
   return (
     <div className="tplist__product d-flex align-items-center justify-content-between mb-20">
       <div className="tplist__product-img">
-        <Link href={`/shop-details/${product.id}`}>
+        <Link href={`/product/${product.slug}`}>
           <Image
             src={image.original}
             alt="product-img"
             width={222}
             height={221}
             style={imgStyle}
+            unoptimized
           />
         </Link>
         {image.thumbnail && (
-          <Link href={`/shop-details/${product.id}`} className="tplist__product-img-two">
+          <Link href={`/product/${product.slug}`} className="tplist__product-img-two">
             <Image
               src={image.thumbnail}
               alt="product-img"
               width={222}
               height={221}
               style={imgStyle}
+              unoptimized
             />
           </Link>
         )}

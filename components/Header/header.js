@@ -21,6 +21,7 @@ function Header(props) {
             quality={100}
             priority={true}
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            unoptimized
           />
         </div>
         <Carousel

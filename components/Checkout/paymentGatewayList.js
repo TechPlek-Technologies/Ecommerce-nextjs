@@ -23,6 +23,7 @@ const PaymentGatewayList = ({ selectPaymentMethod, submitOrder, settings }) => {
                 width={100}
                 height={50}
                 alt="Cash On Delivery"
+                unoptimized
               />
               <span>Cash On Delivery</span>
             </div>

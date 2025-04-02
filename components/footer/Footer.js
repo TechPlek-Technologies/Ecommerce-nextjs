@@ -149,7 +149,7 @@ const Footer = ({ style_2 = false }) => {
                       <form>
                         <span>
                           <i>
-                            <Image src="/img/shape/message-1.svg" alt="icon" width={18} height={15} />
+                            <Image src="/img/shape/message-1.svg" alt="icon" width={18} height={15} unoptimized/>
                           </i>
                         </span>
                         <input type="email" placeholder="Your email address..." />
@@ -183,10 +183,10 @@ const Footer = ({ style_2 = false }) => {
                       <ImageLoader
                         src={settings.settingsData.gatewayImage[0]?.url}
                         alt={settings.settingsData.gatewayImage[0]?.name}
-                        width={250}
+                        width={100}
                         height={35}
                         style={{
-                          width: 'auto',
+                          width: '250px',
                           height: '100%'
                         }}
                       />

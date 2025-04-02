@@ -179,6 +179,7 @@ const ProductDetails = (props) => {
         width={67}
         height={67}
         style={{ width: "100%", height: "auto" }}
+        unoptimized
       />
     ));
     return thumbList;

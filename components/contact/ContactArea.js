@@ -6,7 +6,7 @@ function ContactItem ({img,title,add,phone,email}) {
     <div className="col-lg-3 col-md-6">
         <div className="tpcontact mb-30">
           <div className="tpcontact__img mb-15 w-img">
-              <Image src={`/img/banner/contact-big-bg${img}.jpg`} alt="contact-img" width={330} height={200} style={{height: 'auto'}}/>
+              <Image src={`/img/banner/contact-big-bg${img}.jpg`} alt="contact-img" width={330} height={200} style={{height: 'auto'}} unoptimized/>
           </div>
           <div className="tplocation__text">
               <h4 className="tplocation__text-title">{title}</h4>

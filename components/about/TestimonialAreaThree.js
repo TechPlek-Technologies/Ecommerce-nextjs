@@ -111,6 +111,7 @@ const TestimonialAreaThree = () => {
                       width={70}
                       height={70}
                       alt="user"
+                      unoptimized
                     />
                   </div>
                   <div className="tptestimonial__content tptestimonial__content2">

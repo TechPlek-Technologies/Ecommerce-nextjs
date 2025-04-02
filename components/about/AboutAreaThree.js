@@ -10,7 +10,7 @@ function AboutItem({ img, title }) {
     <div className="col-lg-4 col-md-6 col-sm-6">
       <div className="img-box__wrapper text-center mb-30">
         <div className="img-box__thumb mb-30">
-          <Image src={img} alt="img" />
+          <Image src={img} alt="img" unoptimized/>
         </div>
         <div className="img-box__content">
           <h4 className="img-box__title mb-10">{title}</h4>

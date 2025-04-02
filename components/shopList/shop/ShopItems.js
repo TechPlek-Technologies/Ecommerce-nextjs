@@ -14,7 +14,7 @@ const ShopItems = ({ products, activeTab, currentItems }) => {
       {products.length === 0 && (
         <div className="cartmini__empty text-center mt-80">
           <div className="mb-30">
-            <Image src="/img/cart/empty-cart.png" alt="empty-cart-img" width={283} height={171} />
+            <Image src="/img/cart/empty-cart.png" alt="empty-cart-img" width={283} height={171} unoptimized />
           </div>
           <h4>Sorry! Could not find the product you were looking For!!!</h4>
           <p>Please check if you have misspelt something or try searching with other words.</p>

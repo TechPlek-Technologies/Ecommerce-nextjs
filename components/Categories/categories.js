@@ -14,6 +14,7 @@ function Category(props) {
                 alt={props.name}
                 width={80}
                 height={80}
+                unoptimized
               />
             </div>
           </figure>

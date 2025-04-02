@@ -19,6 +19,7 @@ const Invoice = ({ data }) => {
             height={60}
             alt={settings.settingsData.name}
             quality={100}
+            unoptimized
           />
         )}
         <h2>{t("we_have_received_your_order")}</h2>

@@ -8,7 +8,7 @@ export function AboutItem ({icon,title,subtitle}) {
     <div className="col-lg-4 col-md-4 col-sm-6">
       <div className="tpabout__item text-center mb-40">
           <div className="tpabout__icon mb-15">
-            <Image src={`/img/icon/about-svg${icon}.svg`} alt="icon" width={64} height={64}/>
+            <Image src={`/img/icon/about-svg${icon}.svg`} alt="icon" width={64} height={64} unoptimized/>
           </div>
           <div className="tpabout__content">
             <h4 className="tpabout__title">{title}</h4>
@@ -28,7 +28,7 @@ const AboutArea = ({style_2 = false}) => {
               <div className="row">
                   <div className="col-md-12">
                     <div className="tpabout__title-img text-center mb-45">
-                        <Image className="mb-25" src={about_img} alt="about-img"/>
+                        <Image className="mb-25" src={about_img} alt="about-img" unoptimized/>
                         <p>We are Online Market of fresh fruits & vegetables. <br/> You can also find organic & healthy juice, processed food as <br/>well as gentle skin tcare at our store.</p>
                     </div>
                   </div>

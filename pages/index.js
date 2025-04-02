@@ -1,8 +1,6 @@
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import AllProducts from '~/components/AllProducts';
 import HeadData from '~/components/Head';
 import HeroBanner from '~/components/HeroBanner';
 import CategoryDisplay from '~/components/home/CategoryDisplay';
@@ -14,23 +12,18 @@ import homePageData from '~/lib/dataLoader/home';
 import { wrapper } from '~/redux/store';
 
 const Error500 = dynamic(() => import('~/components/error/500'));
-const Header = dynamic(() => import('~/components/Header/header'));
-const Banner = dynamic(() => import('~/components/Banner/banner'));
-const CategoryList = dynamic(() => import('~/components/Categories/categoriesList'));
-const Collection = dynamic(() => import('~/components/Collection/collection'));
-const BrandCardList = dynamic(() => import('~/components/Brand/brandList'));
 const ProductDetails = dynamic(() => import('~/components/Shop/Product/productDetails'));
-const ProductList = dynamic(() => import('~/components/ProductListView'));
 const GlobalModal = dynamic(() => import('~/components/Ui/Modal/modal'));
 
 function HomePage({ data, error }) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const { t } = useTranslation();
   const handleCloseModal = () => {
     router.push('/', undefined, { scroll: false });
     setIsOpen(false);
   };
+
+  console.log('data', data);
 
   useEffect(() => {
     if (router.query.slug) {
@@ -54,7 +47,7 @@ function HomePage({ data, error }) {
 
           <section className="category-area grey-bg pb-40">
             <div className="container">
-              <CategoryDisplay cls="category-active"/>
+              <CategoryDisplay cls="category-active" />
             </div>
           </section>
           {/* new */}

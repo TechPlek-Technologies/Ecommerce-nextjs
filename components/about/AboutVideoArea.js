@@ -41,7 +41,7 @@ const AboutVideoArea = () => {
           <div className="row">
             <div className="col-lg-12">
                 <div className="tpvideo__bg p-relative mb-25">
-                  <Image src={video_bg} alt="video-img" style={{height:'auto'}}/>
+                  <Image src={video_bg} alt="video-img" style={{height:'auto'}} unoptimized/>
                   <div className="tpvideo__video-btn">
                       <a className="tpvideo__video-icon pointer popup-video" onClick={()=> setIsVideoOpen(true)}>
                         <i>

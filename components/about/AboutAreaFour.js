@@ -10,7 +10,7 @@ const AboutAreaFour = () => {
           <div className="col-lg-6">
             <div className="tpabout__inner-thumb-2 p-relative mb-30">
               <div style={{ position: 'relative', width: '100%', height: '400px' }}>
-                <Image src={about_inner} alt="about-img" style={{ objectFit: 'cover' }} />
+                <Image src={about_inner} alt="about-img" style={{ objectFit: 'cover' }} unoptimized/>
               </div>
               {/* <div className="tpabout__inner-thumb-shape d-none d-md-block">
                 <div className="tpabout__inner-thumb-shape-one" style={{ position: 'relative', width: '100px', height: '100px' }}>

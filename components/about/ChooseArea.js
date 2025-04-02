@@ -8,7 +8,7 @@ function ChooseItem ({icon,title}) {
     <div className="col-lg-3 col-md-6 col-sm-6">
         <div className="tpchoose__item text-center mb-30">
           <div className="tpchoose__icon mb-20">
-              <Image src={`/img/icon/choose-icon${icon}.svg`} width={65} height={65} alt="icon"/>
+              <Image src={`/img/icon/choose-icon${icon}.svg`} width={65} height={65} alt="icon" unoptimized/>
           </div>
           <div className="tpchoose__content">
               <h4 className="tpchoose__title">{title}</h4>

@@ -8,7 +8,7 @@ export function FeatureItem({ img, title, subtitle, spacing = '30' }) {
     <div className="col">
       <div className={`mainfeature__item text-center mb-${spacing}`}>
         <div className="mainfeature__icon">
-          <Image src={`/img/icon/feature-icon-${img}.svg`} alt="icon" width={25} height={25} />
+          <Image src={`/img/icon/feature-icon-${img}.svg`} alt="icon" width={25} height={25} unoptimized/>
         </div>
         <div className="mainfeature__content">
           <h4 className="mainfeature__title">{title}</h4>
