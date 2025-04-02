@@ -131,6 +131,7 @@ const CartPage = () => {
               height={90}
               width={90}
               alt={item.name}
+              unoptimized
             />
           </div>
           <div data-name="Name">

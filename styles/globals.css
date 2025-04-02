@@ -450,7 +450,8 @@ ul.thumbs {
 
 .carousel .thumb {
   width: 75px !important;
-  height: 75px !important;
+  /* height: 120px !important; */
+  /* background-color: #fff; */
 }
 
 .carousel .thumbs-wrapper {

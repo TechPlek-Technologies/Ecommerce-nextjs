@@ -23,6 +23,7 @@ export default function BrandCardList({ items }) {
                 width={180}
                 height={120}
                 style={{ width: "auto", height: "70px" }}
+                unoptimized
               />
               <div className={c.name}>{item.name}</div>
             </div>

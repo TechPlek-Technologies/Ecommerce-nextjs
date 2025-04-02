@@ -69,6 +69,7 @@ export default function CartSidebar({ isCartSidebarOpen, setIsCartSidebarOpen })
                 alt="empty-cart-img"
                 width={200} // Adjust as needed
                 height={200} // Adjust as needed
+                unoptimized
               />
               <p>Your Cart is empty</p>
               <Link href="/shop" className="tp-btn-2 mt-10">
@@ -83,7 +84,7 @@ export default function CartSidebar({ isCartSidebarOpen, setIsCartSidebarOpen })
                     <li key={item.id}>
                       <div className="tpcart__item">
                         <div className="tpcart__img">
-                          <Image src={item.image[0]?.url} alt={item.name} width={70} height={70} />
+                          <Image src={item.image[0]?.url} alt={item.name} width={70} height={70} unoptimized/>
                           <div className="tpcart__del">
                             <a className="pointer" onClick={() => dispatch(removeFromCart(item.uid))}>
                               <i className="icon-x-circle"></i>

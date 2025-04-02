@@ -74,6 +74,7 @@ const HeroBanner = (props) => {
                             width: "auto",
                             height: "100%",
                           }}
+                          unoptimized
                         />
                       </div>
                     </div>

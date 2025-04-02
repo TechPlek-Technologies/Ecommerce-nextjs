@@ -99,15 +99,17 @@ const ProductSingle = ({ product, progress, cls, offer_style, price_space }) => 
     }
   };
 
+  console.log('product', product);
+
   return (
     <div className={`tpproduct p-relative ${cls ? cls : ''} ${progress ? 'tpprogress__hover' : ''}`}>
-      <div className="tpproduct__thumb p-relative text-center" style={{height:"250px"}}>
+      <div className="tpproduct__thumb p-relative text-center" style={{ height: '280px' }}>
         <Link href={`/product/${product.slug}`}>
-          <Image src={product.image[0]?.url} alt={product.name} width={217} height={217} style={imgStyle} />
+          <Image src={product.image[0]?.url} alt={product.name} width={230} height={240} style={imgStyle} unoptimized />
         </Link>
         {image.thumbnail && (
           <Link href={`/product/${product.slug}`} className="tpproduct__thumb-img">
-            <Image src={product.image[0]?.url} alt={product.name} width={217} height={217} style={imgStyle} />
+            <Image src={product.image[0]?.url} alt={product.name} width={230} height={240} style={imgStyle} unoptimized />
           </Link>
         )}
         <div className="tpproduct__info bage">
@@ -121,13 +123,16 @@ const ProductSingle = ({ product, progress, cls, offer_style, price_space }) => 
           <a className="tpproduct__shopping-wishlist pointer" onClick={addToCompareList}>
             <i className={'icon-layers' + (isCompareAdd ? ' active' : '')}></i>
           </a>
-          <a
+          {/* <a
             className="tpproduct__shopping-cart pointer"
             href={`/product/${product.slug}`}
             onClick={(e) => {
               e.preventDefault();
             }}
           >
+            <i className="icon-eye"></i>
+          </a> */}
+          <a className="tpproduct__shopping-cart pointer" href={`/product/${product.slug}`}>
             <i className="icon-eye"></i>
           </a>
         </div>
@@ -153,7 +158,13 @@ const ProductSingle = ({ product, progress, cls, offer_style, price_space }) => 
 
           {/* Buy Now / Out of Stock Button */}
           {stockInfo(product) ? (
-            <Link href={`/product/${product.slug}`} scroll={false} shallow={true} className="tp-btn-2 pointer" style={{padding:"1px 20px"}}>
+            <Link
+              href={`/product/${product.slug}`}
+              scroll={false}
+              shallow={true}
+              className="tp-btn-2 pointer"
+              style={{ padding: '1px 20px' }}
+            >
               Buy Now
             </Link>
           ) : (

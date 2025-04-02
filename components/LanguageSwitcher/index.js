@@ -67,6 +67,7 @@ export default function LanguageSwitcher() {
             height={14}
             alt={lists[lang]?.name}
             src={`${process.env.NEXT_PUBLIC_URL}${lists[lang]?.flag}`}
+            unoptimized
           />
           <span>{lists[lang]?.name}</span>
         </div>
@@ -78,6 +79,7 @@ export default function LanguageSwitcher() {
                 height={14}
                 alt={data.name}
                 src={`${process.env.NEXT_PUBLIC_URL}${data.flag}`}
+                unoptimized
               />
               <span>{data.name}</span>
             </li>

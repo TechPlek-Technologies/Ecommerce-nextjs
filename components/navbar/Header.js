@@ -108,6 +108,7 @@ const Header = () => {
                             alt="icon"
                             width={24} // Adjust as needed
                             height={24} // Adjust as needed
+                            unoptimized
                           />
                         </i>
                         <span>{getItemsCount()}</span>
@@ -141,7 +142,7 @@ const Header = () => {
               <div className="col-lg-4 col-md-4 col-6 col-sm-4">
                 <div className="header__logo text-center" style={{ position: 'relative', width: '150px', height: '50px' }}>
                   <Link href="/">
-                    <Image src="/img/logo/logo.png" alt="logo" fill style={{ objectFit: 'contain' }} />
+                    <Image src={std.logo[0]?.url} alt="logo" fill style={{ objectFit: 'contain' }} unoptimized/>
                   </Link>
                 </div>
               </div>
@@ -171,6 +172,7 @@ const Header = () => {
                           alt="icon"
                           width={24} // Adjust as needed
                           height={24} // Adjust as needed
+                          unoptimized
                         />
                       </i>
                       <span>{quantity}</span>

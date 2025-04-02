@@ -28,6 +28,11 @@
   cursor: zoom-in !important;
 }
 
+.magnifier_container img {
+  max-height: 400px; /* Adjust this as needed */
+  width: 100%;
+}
+
 .magnifier_circle_outer {
   max-height: 410px;
   width: 100%;
