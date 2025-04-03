@@ -5,7 +5,7 @@ const OfferCountdownBanner= (props) => {
     if (!props.banner) return null;
   return (
     <section
-      className={`product-coundown-area tpcoundown__bg grey-bg pb-25`}
+      className={`product-coundown-area tpcoundown__bg grey-bg pb-25 mb-35`}
       style={{ backgroundImage: `url(${props.banner.image[0]?.url})` }}
     >
       <div className="container">
@@ -25,7 +25,7 @@ const OfferCountdownBanner= (props) => {
               </div>
               <div className="tpcoundown__count">
                 <div className="tpcoundown__btn mt-50">
-                  <Link className="whight-btn" href={props.banner.url}>
+                  <Link className="whight-btn" href="/shop" >
                     Shop Now
                   </Link>
                   {/* <Link
