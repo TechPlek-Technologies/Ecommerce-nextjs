@@ -19,7 +19,7 @@ const ProductBannerAreaFive = ({ data }) => {
                       <h4 className="tpbanner__title mb-15">{data.scopeA.title}</h4>
                       <p>Natural, Rich in Nutrition</p>
                       <div className="tpbanner__btn">
-                        <Link href={data.scopeA.url} className="whight-btn">
+                        <Link href="/shop" className="whight-btn">
                           {t('shop_now')}
                         </Link>
                       </div>

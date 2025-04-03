@@ -45,14 +45,11 @@ const Header = () => {
     }
   };
 
-    // Getting the count of items
-    const getItemsCount = () => {
-      const p = cartData.items.reduce(
-        (accumulator, item) => accumulator + item.qty,
-        0
-      );
-      return decimalBalance(p);
-    };
+  // Getting the count of items
+  const getItemsCount = () => {
+    const p = cartData.items.reduce((accumulator, item) => accumulator + item.qty, 0);
+    return decimalBalance(p);
+  };
 
   return (
     <>
@@ -66,7 +63,7 @@ const Header = () => {
               <div className="row align-items-center">
                 <div className="col-xl-3">
                   <div className="header__logo">
-                    <Link href="/">{std.logo[0] && <ImageLoader src={std.logo[0]?.url} width={155} height={44} alt={std.name} />}</Link>
+                    <Link href="/">{std.logo[0] && <ImageLoader src={std.logo[0]?.url} width={200} height={70} alt={std.name} />}</Link>
                   </div>
                 </div>
 
@@ -85,10 +82,7 @@ const Header = () => {
                       </button>
                     </div>
 
-                 
-                    
                     <div className="header__info-cart tpcolor__yellow ml-10 tp-cart-toggle">
-                   
                       <Link href="/compare">
                         <i className="icon-repeat"></i>
                         <span>{compare.length || 0}</span>
@@ -142,11 +136,11 @@ const Header = () => {
               <div className="col-lg-4 col-md-4 col-6 col-sm-4">
                 <div className="header__logo text-center" style={{ position: 'relative', width: '150px', height: '50px' }}>
                   <Link href="/">
-                    <Image src={std.logo[0]?.url} alt="logo" fill style={{ objectFit: 'contain' }} unoptimized/>
+                    <Image src={std.logo[0]?.url} alt="logo" fill style={{ objectFit: 'contain' }} unoptimized />
                   </Link>
                 </div>
               </div>
-              ;
+
               <div className="col-lg-4 col-md-4 col-3 col-sm-5">
                 <div className="header__info d-flex align-items-center">
                   <div className="header__info-search tpcolor__purple ml-10 d-none d-sm-block">
@@ -154,17 +148,17 @@ const Header = () => {
                       <i className="icon-search"></i>
                     </button>
                   </div>
-                  <div className="header__info-user tpcolor__yellow ml-10 d-none d-sm-block">
+                  <div className="header__info-user tpcolor__yellow ml-5 d-none d-sm-block">
                     <Link href="/login">
                       <i className="icon-user"></i>
                     </Link>
                   </div>
-                  <div className="header__info-wishlist tpcolor__greenish ml-10 d-none d-sm-block">
+                  <div className="header__info-wishlist tpcolor__greenish ml-5 d-none d-sm-block">
                     <Link href="/wishlist">
                       <i className="icon-heart icons"></i>
                     </Link>
                   </div>
-                  <div className="header__info-cart tpcolor__oasis ml-10 tp-cart-toggle">
+                  <div className="header__info-cart tpcolor__oasis ml-5 tp-cart-toggle">
                     <button onClick={() => setIsCartOpen(true)}>
                       <i>
                         <Image

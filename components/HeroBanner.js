@@ -56,7 +56,7 @@ const HeroBanner = (props) => {
                         >{item.title}</h2>
                         <p>{item.description}</p>
                         <div className="tpslider__btn">
-                          <Link className="tp-btn" href={item.url}>
+                          <Link className="tp-btn" href="/shop">
                             Shop Now
                           </Link>
                         </div>
